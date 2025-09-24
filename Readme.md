@@ -2,6 +2,16 @@
 
 This repository contains resources I used for benchmarking the USB 3.1 interface on Agilex 5 HPS.
 
+## Background
+
+These benchmarks are designed to measure peak throughout reading and writing from device memory to a USB flash drive. The following were taken into consideration:
+
+1. Choose a flash drive with a higher read/write speed than the devkit is rated for (to avoid the flash drive being a bottleneck)
+2. Choose sequential reads and writes for optimal throughput.
+3. Choose large block sizes to minimize I/O requests. This reduces CPU overhead and helps ensure that the CPU does not bottleneck the throughput.
+4. Choose large I/O buffers to saturate the drive bandwidth.
+5. Sweep across different combinations of block size and buffer depth to characterize the interface, and verify that the drive's bandwidth is saturated
+
 ## Methods
 
 Follow the instructions below to reproduce the results of this benchmark for yourself.
