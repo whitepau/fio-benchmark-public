@@ -1,8 +1,7 @@
 [global]
 ioengine=io_uring           # or: libaio
 direct=1
-directory=/media/usbstick/fio_test
-# filename=/dev/sdb1      # <-- change to a safe test device or a pre-created file
+filename=/dev/sdb1      # <-- change to a safe test device or a pre-created file
 size=8G
 time_based=1
 runtime=45

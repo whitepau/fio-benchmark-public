@@ -34,9 +34,9 @@ You can run the benchmarks and generate graphics as follows:
 
 1. Ensure that `fio` is available on your devkit, either by installing it from a package manager or including it in your root file system as part of your build process.
 2. Copy this repository to your devkit.
-3. Run `fio`:
+3. Run `fio` (override the device you are accessing, for example, `/dev/sda1`):
    ```
-   fio bs_qd_sweep.fio --output=bs_qd_results.json --output-format=json 
+   fio bs_qd_rd_sweep.fio --filename=/dev/sdX1 --output=bs_qd_results.json --output-format=json 
    ```
 4. Run the `bs_qd_graph.py` script:
    ```
