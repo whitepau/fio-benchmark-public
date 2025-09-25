@@ -34,11 +34,16 @@ You can run the benchmarks and generate graphics as follows:
 
 1. Ensure that `fio` is available on your devkit, either by installing it from a package manager or including it in your root file system as part of your build process.
 2. Copy this repository to your devkit.
-3. Run `fio` (override the device you are accessing, for example, `/dev/sda1`):
+3. Mount your USB flash drive as `/media/usbstick`. If you choose to mount it in a different directory, update the `.fio` script.
+   ```
+   sudo mkdir /media/usbstick
+   sudo mount /dev/sdX1 /media/usbstick
+   ```
+4. Run `fio` (override the device you are accessing, for example, `/dev/sda1`):
    ```
    fio bs_qd_rd_sweep.fio --filename=/dev/sdX1 --output=bs_qd_results.json --output-format=json 
    ```
-4. Run the `bs_qd_graph.py` script:
+5. Run the `bs_qd_graph.py` script:
    ```
    python3 bs_qd_graph.py bs_qd_results.json
    ```
