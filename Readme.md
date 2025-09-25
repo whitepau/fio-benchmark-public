@@ -48,18 +48,18 @@ You can run the benchmarks and generate graphics as follows:
 
 The following graphs result from running the code on various test platforms.
 
-![alt text](Readme_assets/workstation.png)
+![alt text](Readme_assets/result_workstation.png)
 
 Workstation 
 
-![alt text](Readme_assets/agilex5.png)
+![alt text](Readme_assets/result_agilex5.png)
 
 Agilex™ 5 - 20s runtime
 
-![alt text](Readme_assets/agilex5_40s.png)
+![alt text](Readme_assets/result_agilex5_40s.png)
 
 Agilex™ 5 - 40s runtime
  
-![alt text](Readme_assets/kv260.png)
+![alt text](Readme_assets/result_kv260.png)
 
 KV260 
