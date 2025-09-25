@@ -1,10 +1,10 @@
 [global]
-ioengine=io_uring       # or: libaio
+ioengine=io_uring         # or: libaio
 direct=1
-filename=/dev/sdb1      # <-- change to a safe test device or a pre-created file
+directory=/media/usbstick # <-- change to a safe test device or a pre-created file
 size=8G
 time_based=1
-runtime=20              # <-- choose 45 for Agilex™ 5 E-series 
+runtime=20                # <-- choose 45 for Agilex™ 5 E-series 
 ramp_time=5
 numjobs=1
 group_reporting
