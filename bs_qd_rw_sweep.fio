@@ -1,15 +1,14 @@
 [global]
-ioengine=io_uring           # or: libaio
+ioengine=io_uring         # or: libaio
 direct=1
-filename=/dev/sdb1      # <-- change to a safe test device or a pre-created file
-size=8G
+directory=/media/usbstick # <-- change to a safe test device or a pre-created file
+size=4G
 time_based=1
-runtime=45
-ramp_time=5
+runtime=20s                # <-- choose 45 for Agilex™ 5 E-series 
+ramp_time=5s
 numjobs=1
-group_reporting
-thread=1
-cpus_allowed=2,3
+group_reporting=1
+cpus_allowed=2,3           # <-- force A76 cores on Agilex™ 5 SoC
 
 ###############################################################################
 # READ SWEEP
