@@ -64,22 +64,22 @@ stonewall
 # ----- 64K -----
 
 [r_bs64k_20s]
-bs=16k
+bs=64k
 runtime=20s
 stonewall
 
 [r_bs64k_30s]
-bs=16k
+bs=64k
 runtime=30s
 stonewall
 
 [r_bs64k_40s]
-bs=16k
+bs=64k
 runtime=40s
 stonewall
 
 [r_bs64k_50s]
-bs=16k
+bs=64k
 runtime=50s
 stonewall
 
