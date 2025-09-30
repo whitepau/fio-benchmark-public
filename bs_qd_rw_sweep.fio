@@ -12,7 +12,7 @@ cpus_allowed=2,3                      # <-- force A76 cores on Agilex™ 5 SoC
 end_fsync=1
 
 ###############################################################################
-# READ SWEEP
+# SWEEP BLOCK SIZE AND QUEUE DEPTH - READ
 ###############################################################################
 # ----- 4K -----
 [r_bs4k_qd1]
@@ -312,7 +312,7 @@ stonewall
 
 
 ###############################################################################
-# WRITE SWEEP (mirrors the read matrix)
+# SWEEP BLOCK SIZE AND QUEUE DEPTH - WRITE
 ###############################################################################
 # Optional write-specific globals (uncomment if needed):
 # sync=0                       # buffered cache flush behavior

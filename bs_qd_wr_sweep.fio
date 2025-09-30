@@ -10,6 +10,7 @@ numjobs=1
 group_reporting=1
 cpus_allowed=2,3                      # <-- force A76 cores on Agilex™ 5 SoC
 end_fsync=1
+rw=write
 
 ###############################################################################
 # SWEEP BLOCK SIZE AND QUEUE DEPTH
