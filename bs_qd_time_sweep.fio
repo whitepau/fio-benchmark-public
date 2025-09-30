@@ -1,167 +1,437 @@
 [global]
-ioengine=io_uring         # or: libaio
+ioengine=io_uring                     # or: libaio
 direct=1
-directory=/media/usbstick # <-- change to a safe test device or a pre-created file
+filename=/media/usbstick/fio_testfile # <-- change to a safe test device or a pre-created file
 size=4G
 time_based=1
-# runtime=20s                # <-- choose 45 for Agilex™ 5 E-series 
+#runtime=20s                           # <-- choose 45 for Agilex™ 5 E-series 
 ramp_time=5s
 numjobs=1
-group_reporting=1
-cpus_allowed=2,3           # <-- force A76 cores on Agilex™ 5 SoC
+cpus_allowed=2,3                      # <-- force A76 cores on Agilex™ 5 SoC
+end_fsync=1
+
+iodepth=128
+rw=read
 
 ###############################################################################
-# READ SWEEP
+# SWEEP TIME AND BLOCK SIZE
 ###############################################################################
+# ----- 4K -----
+
+[r_bs4k_20s]
+bs=4k
+runtime=20s
+stonewall
+
+[r_bs4k_30s]
+bs=4k
+runtime=30s
+stonewall
+
+[r_bs4k_40s]
+bs=4k
+runtime=40s
+stonewall
+
+[r_bs4k_50s]
+bs=4k
+runtime=50s
+stonewall
+
+# ----- 16K -----
+
+[r_bs16k_20s]
+bs=16k
+runtime=20s
+stonewall
+
+[r_bs16k_30s]
+bs=16k
+runtime=30s
+stonewall
+
+[r_bs16k_40s]
+bs=16k
+runtime=40s
+stonewall
+
+[r_bs16k_50s]
+bs=16k
+runtime=50s
+stonewall
+
+
+# ----- 64K -----
+
+[r_bs64k_20s]
+bs=16k
+runtime=20s
+stonewall
+
+[r_bs64k_30s]
+bs=16k
+runtime=30s
+stonewall
+
+[r_bs64k_40s]
+bs=16k
+runtime=40s
+stonewall
+
+[r_bs64k_50s]
+bs=16k
+runtime=50s
+stonewall
 
 # ----- 256K -----
 
 [r_bs256k_20s]
-rw=read
 bs=256k
-iodepth=128
 runtime=20s
 stonewall
 
 [r_bs256k_30s]
-rw=read
 bs=256k
-iodepth=128
 runtime=30s
 stonewall
 
 [r_bs256k_40s]
-rw=read
 bs=256k
-iodepth=128
 runtime=40s
 stonewall
 
 [r_bs256k_50s]
-rw=read
 bs=256k
-iodepth=128
 runtime=50s
 stonewall
 
 # ----- 1M -----
 
 [r_bs1M_20s]
-rw=read
 bs=1M
-iodepth=128
 runtime=20s
 stonewall
 
 [r_bs1M_30s]
-rw=read
 bs=1M
-iodepth=128
 runtime=30s
 stonewall
 
 [r_bs1M_40s]
-rw=read
 bs=1M
-iodepth=128
 runtime=40s
 stonewall
 
 [r_bs1M_50s]
-rw=read
 bs=1M
-iodepth=128
 runtime=50s
 stonewall
 
 # ----- 2M -----
 
 [r_bs2M_20s]
-rw=read
 bs=2M
-iodepth=128
 runtime=20s
 stonewall
 
 [r_bs2M_30s]
-rw=read
 bs=2M
-iodepth=128
 runtime=30s
 stonewall
 
 [r_bs2M_40s]
-rw=read
 bs=2M
-iodepth=128
 runtime=40s
 stonewall
 
 [r_bs2M_50s]
-rw=read
 bs=2M
-iodepth=128
 runtime=50s
 stonewall
 
 # ----- 4M -----
 
-
 [r_bs4M_20s]
-rw=read
 bs=4M
-iodepth=128
 runtime=20s
 stonewall
 
 [r_bs4M_30s]
-rw=read
 bs=4M
-iodepth=128
 runtime=30s
 stonewall
 
 [r_bs4M_40s]
-rw=read
 bs=4M
-iodepth=128
 runtime=40s
 stonewall
 
 [r_bs4M_50s]
-rw=read
 bs=4M
-iodepth=128
 runtime=50s
+stonewall
+
+[r_bs4M_60s]
+bs=4M
+runtime=60s
+stonewall
+
+[r_bs4M_70s]
+bs=4M
+runtime=70s
+stonewall
+
+[r_bs4M_80s]
+bs=4M
+runtime=80s
+stonewall
+
+[r_bs4M_90s]
+bs=4M
+runtime=90s
+stonewall
+
+[r_bs4M_100s]
+bs=4M
+runtime=100s
 stonewall
 
 # ----- 8M -----
 
-
 [r_bs8M_20s]
-rw=read
 bs=8M
-iodepth=128
 runtime=20s
 stonewall
 
 [r_bs8M_30s]
-rw=read
 bs=8M
-iodepth=128
 runtime=30s
 stonewall
 
 [r_bs8M_40s]
-rw=read
 bs=8M
-iodepth=128
 runtime=40s
 stonewall
 
 [r_bs8M_50s]
-rw=read
 bs=8M
-iodepth=128
 runtime=50s
+stonewall
+
+[r_bs8M_60s]
+bs=8M
+runtime=60s
+stonewall
+
+[r_bs8M_70s]
+bs=8M
+runtime=70s
+stonewall
+
+[r_bs8M_80s]
+bs=8M
+runtime=80s
+stonewall
+
+[r_bs8M_90s]
+bs=8M
+runtime=90s
+stonewall
+
+[r_bs8M_100s]
+bs=8M
+runtime=100s
+stonewall
+
+
+# ----- 16M -----
+
+
+[r_bs16M_20s]
+bs=16M
+runtime=20s
+stonewall
+
+[r_bs16M_30s]
+bs=16M
+runtime=30s
+stonewall
+
+[r_bs16M_40s]
+bs=16M
+runtime=40s
+stonewall
+
+[r_bs16M_50s]
+bs=16M
+runtime=50s
+stonewall
+
+
+[r_bs16M_60s]
+bs=16M
+runtime=60s
+stonewall
+
+[r_bs16M_70s]
+bs=16M
+runtime=70s
+stonewall
+
+[r_bs16M_80s]
+bs=16M
+runtime=80s
+stonewall
+
+[r_bs16M_90s]
+bs=16M
+runtime=90s
+stonewall
+
+[r_bs16M_100s]
+bs=16M
+runtime=100s
+stonewall
+
+# ----- 32M -----
+
+[r_bs32M_20s]
+bs=32M
+runtime=20s
+stonewall
+
+[r_bs32M_30s]
+bs=32M
+runtime=30s
+stonewall
+
+[r_bs32M_40s]
+bs=32M
+runtime=40s
+stonewall
+
+[r_bs32M_50s]
+bs=32M
+runtime=50s
+stonewall
+
+
+[r_bs32M_60s]
+bs=32M
+runtime=60s
+stonewall
+
+[r_bs32M_70s]
+bs=32M
+runtime=70s
+stonewall
+
+[r_bs32M_80s]
+bs=32M
+runtime=80s
+stonewall
+
+[r_bs32M_90s]
+bs=32M
+runtime=90s
+stonewall
+
+[r_bs32M_100s]
+bs=32M
+runtime=100s
+stonewall
+
+
+# ----- 64M -----
+
+[r_bs64M_20s]
+bs=64M
+runtime=20s
+stonewall
+
+[r_bs64M_30s]
+bs=64M
+runtime=30s
+stonewall
+
+[r_bs64M_40s]
+bs=64M
+runtime=40s
+stonewall
+
+[r_bs64M_50s]
+bs=64M
+runtime=50s
+stonewall
+
+[r_bs64M_60s]
+bs=64M
+runtime=60s
+stonewall
+
+[r_bs64M_70s]
+bs=64M
+runtime=70s
+stonewall
+
+[r_bs64M_80s]
+bs=64M
+runtime=80s
+stonewall
+
+[r_bs64M_90s]
+bs=64M
+runtime=90s
+stonewall
+
+[r_bs64M_100s]
+bs=64M
+runtime=100s
+stonewall
+
+# ----- 128M -----
+
+[r_bs128M_20s]
+bs=128M
+runtime=20s
+stonewall
+
+[r_bs128M_30s]
+bs=128M
+runtime=30s
+stonewall
+
+[r_bs128M_40s]
+bs=128M
+runtime=40s
+stonewall
+
+[r_bs128M_50s]
+bs=128M
+runtime=50s
+stonewall
+
+[r_bs128M_60s]
+bs=128M
+runtime=60s
+stonewall
+
+[r_bs128M_70s]
+bs=128M
+runtime=70s
+stonewall
+
+[r_bs128M_80s]
+bs=128M
+runtime=80s
+stonewall
+
+[r_bs128M_90s]
+bs=128M
+runtime=90s
+stonewall
+
+[r_bs128M_100s]
+bs=128M
+runtime=100s
 stonewall

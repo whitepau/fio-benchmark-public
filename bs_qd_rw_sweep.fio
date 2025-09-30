@@ -1,14 +1,15 @@
 [global]
-ioengine=io_uring         # or: libaio
+ioengine=io_uring                     # or: libaio
 direct=1
-directory=/media/usbstick # <-- change to a safe test device or a pre-created file
+filename=/media/usbstick/fio_testfile # <-- change to a safe test device or a pre-created file
 size=4G
 time_based=1
-runtime=20s                # <-- choose 45 for Agilex™ 5 E-series 
+runtime=20s                           # <-- choose 45 for Agilex™ 5 E-series 
 ramp_time=5s
 numjobs=1
 group_reporting=1
-cpus_allowed=2,3           # <-- force A76 cores on Agilex™ 5 SoC
+cpus_allowed=2,3                      # <-- force A76 cores on Agilex™ 5 SoC
+end_fsync=1
 
 ###############################################################################
 # READ SWEEP
