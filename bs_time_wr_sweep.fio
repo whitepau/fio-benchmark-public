@@ -293,145 +293,145 @@ bs=16M
 runtime=100s
 stonewall
 
-# ----- 32M -----
+# # ----- 32M -----
 
-[r_bs32M_20s]
-bs=32M
-runtime=20s
-stonewall
+# [r_bs32M_20s]
+# bs=32M
+# runtime=20s
+# stonewall
 
-[r_bs32M_30s]
-bs=32M
-runtime=30s
-stonewall
+# [r_bs32M_30s]
+# bs=32M
+# runtime=30s
+# stonewall
 
-[r_bs32M_40s]
-bs=32M
-runtime=40s
-stonewall
+# [r_bs32M_40s]
+# bs=32M
+# runtime=40s
+# stonewall
 
-[r_bs32M_50s]
-bs=32M
-runtime=50s
-stonewall
-
-
-[r_bs32M_60s]
-bs=32M
-runtime=60s
-stonewall
-
-[r_bs32M_70s]
-bs=32M
-runtime=70s
-stonewall
-
-[r_bs32M_80s]
-bs=32M
-runtime=80s
-stonewall
-
-[r_bs32M_90s]
-bs=32M
-runtime=90s
-stonewall
-
-[r_bs32M_100s]
-bs=32M
-runtime=100s
-stonewall
+# [r_bs32M_50s]
+# bs=32M
+# runtime=50s
+# stonewall
 
 
-# ----- 64M -----
+# [r_bs32M_60s]
+# bs=32M
+# runtime=60s
+# stonewall
 
-[r_bs64M_20s]
-bs=64M
-runtime=20s
-stonewall
+# [r_bs32M_70s]
+# bs=32M
+# runtime=70s
+# stonewall
 
-[r_bs64M_30s]
-bs=64M
-runtime=30s
-stonewall
+# [r_bs32M_80s]
+# bs=32M
+# runtime=80s
+# stonewall
 
-[r_bs64M_40s]
-bs=64M
-runtime=40s
-stonewall
+# [r_bs32M_90s]
+# bs=32M
+# runtime=90s
+# stonewall
 
-[r_bs64M_50s]
-bs=64M
-runtime=50s
-stonewall
+# [r_bs32M_100s]
+# bs=32M
+# runtime=100s
+# stonewall
 
-[r_bs64M_60s]
-bs=64M
-runtime=60s
-stonewall
 
-[r_bs64M_70s]
-bs=64M
-runtime=70s
-stonewall
+# # ----- 64M -----
 
-[r_bs64M_80s]
-bs=64M
-runtime=80s
-stonewall
+# [r_bs64M_20s]
+# bs=64M
+# runtime=20s
+# stonewall
 
-[r_bs64M_90s]
-bs=64M
-runtime=90s
-stonewall
+# [r_bs64M_30s]
+# bs=64M
+# runtime=30s
+# stonewall
 
-[r_bs64M_100s]
-bs=64M
-runtime=100s
-stonewall
+# [r_bs64M_40s]
+# bs=64M
+# runtime=40s
+# stonewall
 
-# ----- 128M -----
+# [r_bs64M_50s]
+# bs=64M
+# runtime=50s
+# stonewall
 
-[r_bs128M_20s]
-bs=128M
-runtime=20s
-stonewall
+# [r_bs64M_60s]
+# bs=64M
+# runtime=60s
+# stonewall
 
-[r_bs128M_30s]
-bs=128M
-runtime=30s
-stonewall
+# [r_bs64M_70s]
+# bs=64M
+# runtime=70s
+# stonewall
 
-[r_bs128M_40s]
-bs=128M
-runtime=40s
-stonewall
+# [r_bs64M_80s]
+# bs=64M
+# runtime=80s
+# stonewall
 
-[r_bs128M_50s]
-bs=128M
-runtime=50s
-stonewall
+# [r_bs64M_90s]
+# bs=64M
+# runtime=90s
+# stonewall
 
-[r_bs128M_60s]
-bs=128M
-runtime=60s
-stonewall
+# [r_bs64M_100s]
+# bs=64M
+# runtime=100s
+# stonewall
 
-[r_bs128M_70s]
-bs=128M
-runtime=70s
-stonewall
+# # ----- 128M -----
 
-[r_bs128M_80s]
-bs=128M
-runtime=80s
-stonewall
+# [r_bs128M_20s]
+# bs=128M
+# runtime=20s
+# stonewall
 
-[r_bs128M_90s]
-bs=128M
-runtime=90s
-stonewall
+# [r_bs128M_30s]
+# bs=128M
+# runtime=30s
+# stonewall
 
-[r_bs128M_100s]
-bs=128M
-runtime=100s
-stonewall
+# [r_bs128M_40s]
+# bs=128M
+# runtime=40s
+# stonewall
+
+# [r_bs128M_50s]
+# bs=128M
+# runtime=50s
+# stonewall
+
+# [r_bs128M_60s]
+# bs=128M
+# runtime=60s
+# stonewall
+
+# [r_bs128M_70s]
+# bs=128M
+# runtime=70s
+# stonewall
+
+# [r_bs128M_80s]
+# bs=128M
+# runtime=80s
+# stonewall
+
+# [r_bs128M_90s]
+# bs=128M
+# runtime=90s
+# stonewall
+
+# [r_bs128M_100s]
+# bs=128M
+# runtime=100s
+# stonewall
