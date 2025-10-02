@@ -29,7 +29,6 @@ def parse_bw_data(read_write_mode: str):
 
     for j in data["jobs"]: 
         name = j["jobname"] 
-        iodepth = j["job options"]["iodepth"]
         size_str = j["job options"]["bs"]
         m = re.match(r"(\d+)([kM])", size_str, re.IGNORECASE) 
         if not m: 
@@ -37,7 +36,7 @@ def parse_bw_data(read_write_mode: str):
         size, unit = int(m.group(1)), m.group(2).lower()
         # runtime = int(int(j["job_runtime"]) / int(1000))
         runtime_str = j["job options"]["runtime"]
-        m = re.match(r"(\d+)([s])", size_str, re.IGNORECASE) 
+        m = re.match(r"(\d+)([s])", runtime_str, re.IGNORECASE) 
         if not m: 
             continue 
         runtime = int(m.group(1))
@@ -57,7 +56,7 @@ def parse_bw_data(read_write_mode: str):
 
         # Only include successful runs (nonzero runtime)
         if (runtime > 0):
-            rows.append((bs_kb, iodepth, throughput, throughput_mean, lower_error, upper_error, iops))
+            rows.append((bs_kb, runtime, throughput, throughput_mean, lower_error, upper_error, iops))
 
     return rows
 
@@ -74,51 +73,65 @@ with open(fio_result_filename) as f:
 rows = parse_bw_data(read_write_mode)
 
 # Group by iodepth 
-qd_groups = {} 
-for bs_kb, qd, mbps, mbps_mean, mbps_min, mbps_max, iops in rows: 
-    qd_groups.setdefault(qd, []).append((bs_kb, mbps, mbps_min, mbps_max, iops)) 
+runtime_groups = {} 
+for bs_kb, rt, mbps, mbps_med, mbps_min, mbps_max, iops in rows: 
+    runtime_groups.setdefault(rt, []).append((bs_kb, mbps, mbps_med, mbps_min, mbps_max, iops)) 
 
 # Sort each group by block size 
-for qd in qd_groups: 
-    qd_groups[qd].sort() 
+for rt in runtime_groups: 
+    runtime_groups[rt].sort() 
 
-# Plot bandwidth
-plt.figure(figsize=(10, 6)) 
-for qd, points in sorted(qd_groups.items()): 
+# Plot bandwidth variation
+plt.figure(figsize=(10, 6))
+width = len(runtime_groups)
+colors = []
+# for rt, points in sorted(runtime_groups.items()): 
+#     x = [p[0] for p in points] # block sizes in KiB 
+#     y_med = [p[2] for p in points]
+#     lower_error = [p[3] for p in points]
+#     upper_error = [p[4] for p in points]
+#     yerr = [lower_error, upper_error]
+
+#     labels = [f"{kb}K" if kb < 1024 else f"{kb//1024}M" for kb in x] 
+#     container = plt.errorbar(x, y_med, yerr=yerr, elinewidth=width * 4, marker='X', linestyle="",  capsize=5.0 + width * 4, label=f"Runtime={rt}") 
+#     clr = container[0]._color
+#     colors.append(clr)    
+#     width = width - 1
+
+for rt, points in sorted(runtime_groups.items()): 
     x = [p[0] for p in points] # block sizes in KiB 
-    y = [p[1] for p in points] # throughput MiB/s 
-    lower_error = [p[2] - p[1] for p in points]
-    upper_error = [p[1] - p[3] for p in points]
-    yerr = [lower_error, upper_error]
+    y = [p[1] for p in points] # throughput MiB/s
 
-    labels = [f"{kb}K" if kb < 1024 else f"{kb/1024}M" for kb in x] 
-    plt.plot(x, y, marker='o', label=f"{qd}") 
+    labels = [f"{kb}K" if kb < 1024 else f"{kb//1024}M" for kb in x] 
+    # clr = colors.pop(0)
+    # container = plt.plot(x, y, marker='o', color=clr, label=f"Runtime={rt}")
+    container = plt.plot(x, y, marker='o', label=f"Runtime={rt}")
 
 plt.xscale("log") 
 plt.xticks(x, labels, rotation=45) 
 plt.xlabel("Block Size") 
 plt.ylabel("Throughput (MB/s)") 
-plt.title("fio: Throughput vs Block Size (per iodepth)") 
+plt.title("fio: Throughput vs Block Size (per runtime)") 
 plt.grid(True, which="both", ls="--") 
-plt.legend(title="Queue Depth") 
+plt.legend(title="Runtime") 
 plt.tight_layout() 
 plt.show() 
 
 # Plot IOPS
 plt.figure(figsize=(10, 6)) 
-for qd, points in sorted(qd_groups.items()): 
+for rt, points in sorted(runtime_groups.items()): 
     x = [p[0] for p in points] # block sizes in KB 
     y = [p[4] for p in points] # IO/s
     labels = [f"{kb}K" if kb < 1024 else f"{kb//1024}M" for kb in x] 
-    plt.plot(x, y, marker='o', label=f"QD={qd}") 
+    plt.plot(x, y, marker='o', label=f"Runtime={rt}") 
 
 plt.xscale("log") 
 plt.xticks(x, labels, rotation=45) 
 plt.xlabel("Block Size") 
 plt.yscale("log")
 plt.ylabel("IO commands per second") 
-plt.title("fio: IOPS vs Block Size (per iodepth)") 
+plt.title("fio: IOPS vs Block Size (per Runtime)") 
 plt.grid(True, which="both", ls="--") 
-plt.legend(title="Queue Depth") 
+plt.legend(title="Runtime") 
 plt.tight_layout() 
 plt.show() 
