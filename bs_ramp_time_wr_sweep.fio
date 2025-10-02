@@ -1,0 +1,436 @@
+[global]
+ioengine=io_uring                     # or: libaio
+direct=1
+filename=/media/usbstick/fio_testfile # <-- change to a safe test device or a pre-created file
+size=16G
+time_based=1
+runtime=8s
+numjobs=1
+cpus_allowed=2,3                      # <-- force A76 cores on Agilex™ 5 SoC
+end_fsync=1
+
+iodepth=128
+rw=write
+
+###############################################################################
+# SWEEP TIME AND BLOCK SIZE
+###############################################################################
+# ----- 4K -----
+
+[r_bs4k_4s]
+bs=4k
+ramptime=4s
+stonewall
+
+[r_bs4k_8s]
+bs=4k
+ramptime=8s
+stonewall
+
+[r_bs4k_30s]
+bs=4k
+ramptime=30s
+stonewall
+
+[r_bs4k_60s]
+bs=4k
+ramptime=60s
+stonewall
+
+# ----- 16K -----
+
+[r_bs16k_4s]
+bs=16k
+ramptime=4s
+stonewall
+
+[r_bs16k_8s]
+bs=16k
+ramptime=8s
+stonewall
+
+[r_bs16k_30s]
+bs=16k
+ramptime=30s
+stonewall
+
+[r_bs16k_60s]
+bs=16k
+ramptime=60s
+stonewall
+
+
+# ----- 64K -----
+
+[r_bs64k_4s]
+bs=64k
+ramptime=4s
+stonewall
+
+[r_bs64k_8s]
+bs=64k
+ramptime=8s
+stonewall
+
+[r_bs64k_30s]
+bs=64k
+ramptime=30s
+stonewall
+
+[r_bs64k_60s]
+bs=64k
+ramptime=60s
+stonewall
+
+# ----- 256K -----
+
+[r_bs256k_4s]
+bs=256k
+ramptime=4s
+stonewall
+
+[r_bs256k_8s]
+bs=256k
+ramptime=8s
+stonewall
+
+[r_bs256k_30s]
+bs=256k
+ramptime=30s
+stonewall
+
+[r_bs256k_60s]
+bs=256k
+ramptime=60s
+stonewall
+
+# ----- 1M -----
+
+[r_bs1M_4s]
+bs=1M
+ramptime=4s
+stonewall
+
+[r_bs1M_8s]
+bs=1M
+ramptime=8s
+stonewall
+
+[r_bs1M_30s]
+bs=1M
+ramptime=30s
+stonewall
+
+[r_bs1M_60s]
+bs=1M
+ramptime=60s
+stonewall
+
+# ----- 2M -----
+
+[r_bs2M_4s]
+bs=2M
+ramptime=4s
+stonewall
+
+[r_bs2M_8s]
+bs=2M
+ramptime=8s
+stonewall
+
+[r_bs2M_30s]
+bs=2M
+ramptime=30s
+stonewall
+
+[r_bs2M_60s]
+bs=2M
+ramptime=60s
+stonewall
+
+# ----- 4M -----
+
+[r_bs4M_4s]
+bs=4M
+ramptime=4s
+stonewall
+
+[r_bs4M_8s]
+bs=4M
+ramptime=8s
+stonewall
+
+[r_bs4M_30s]
+bs=4M
+ramptime=30s
+stonewall
+
+[r_bs4M_60s]
+bs=4M
+ramptime=60s
+stonewall
+
+[r_bs4M_60s]
+bs=4M
+ramptime=60s
+stonewall
+
+[r_bs4M_70s]
+bs=4M
+ramptime=70s
+stonewall
+
+[r_bs4M_80s]
+bs=4M
+ramptime=80s
+stonewall
+
+[r_bs4M_90s]
+bs=4M
+ramptime=90s
+stonewall
+
+[r_bs4M_100s]
+bs=4M
+ramptime=100s
+stonewall
+
+# ----- 8M -----
+
+[r_bs8M_4s]
+bs=8M
+ramptime=4s
+stonewall
+
+[r_bs8M_8s]
+bs=8M
+ramptime=8s
+stonewall
+
+[r_bs8M_30s]
+bs=8M
+ramptime=30s
+stonewall
+
+[r_bs8M_60s]
+bs=8M
+ramptime=60s
+stonewall
+
+[r_bs8M_60s]
+bs=8M
+ramptime=60s
+stonewall
+
+[r_bs8M_70s]
+bs=8M
+ramptime=70s
+stonewall
+
+[r_bs8M_80s]
+bs=8M
+ramptime=80s
+stonewall
+
+[r_bs8M_90s]
+bs=8M
+ramptime=90s
+stonewall
+
+[r_bs8M_100s]
+bs=8M
+ramptime=100s
+stonewall
+
+
+# ----- 16M -----
+
+
+[r_bs16M_4s]
+bs=16M
+ramptime=4s
+stonewall
+
+[r_bs16M_8s]
+bs=16M
+ramptime=8s
+stonewall
+
+[r_bs16M_30s]
+bs=16M
+ramptime=30s
+stonewall
+
+[r_bs16M_60s]
+bs=16M
+ramptime=60s
+stonewall
+
+
+[r_bs16M_60s]
+bs=16M
+ramptime=60s
+stonewall
+
+[r_bs16M_70s]
+bs=16M
+ramptime=70s
+stonewall
+
+[r_bs16M_80s]
+bs=16M
+ramptime=80s
+stonewall
+
+[r_bs16M_90s]
+bs=16M
+ramptime=90s
+stonewall
+
+[r_bs16M_100s]
+bs=16M
+ramptime=100s
+stonewall
+
+# # ----- 32M -----
+
+# [r_bs32M_4s]
+# bs=32M
+# ramptime=4s
+# stonewall
+
+# [r_bs32M_8s]
+# bs=32M
+# ramptime=8s
+# stonewall
+
+# [r_bs32M_30s]
+# bs=32M
+# ramptime=30s
+# stonewall
+
+# [r_bs32M_60s]
+# bs=32M
+# ramptime=60s
+# stonewall
+
+
+# [r_bs32M_60s]
+# bs=32M
+# ramptime=60s
+# stonewall
+
+# [r_bs32M_70s]
+# bs=32M
+# ramptime=70s
+# stonewall
+
+# [r_bs32M_80s]
+# bs=32M
+# ramptime=80s
+# stonewall
+
+# [r_bs32M_90s]
+# bs=32M
+# ramptime=90s
+# stonewall
+
+# [r_bs32M_100s]
+# bs=32M
+# ramptime=100s
+# stonewall
+
+
+# # ----- 64M -----
+
+# [r_bs64M_4s]
+# bs=64M
+# ramptime=4s
+# stonewall
+
+# [r_bs64M_8s]
+# bs=64M
+# ramptime=8s
+# stonewall
+
+# [r_bs64M_30s]
+# bs=64M
+# ramptime=30s
+# stonewall
+
+# [r_bs64M_60s]
+# bs=64M
+# ramptime=60s
+# stonewall
+
+# [r_bs64M_60s]
+# bs=64M
+# ramptime=60s
+# stonewall
+
+# [r_bs64M_70s]
+# bs=64M
+# ramptime=70s
+# stonewall
+
+# [r_bs64M_80s]
+# bs=64M
+# ramptime=80s
+# stonewall
+
+# [r_bs64M_90s]
+# bs=64M
+# ramptime=90s
+# stonewall
+
+# [r_bs64M_100s]
+# bs=64M
+# ramptime=100s
+# stonewall
+
+# # ----- 128M -----
+
+# [r_bs128M_4s]
+# bs=128M
+# ramptime=4s
+# stonewall
+
+# [r_bs128M_8s]
+# bs=128M
+# ramptime=8s
+# stonewall
+
+# [r_bs128M_30s]
+# bs=128M
+# ramptime=30s
+# stonewall
+
+# [r_bs128M_60s]
+# bs=128M
+# ramptime=60s
+# stonewall
+
+# [r_bs128M_60s]
+# bs=128M
+# ramptime=60s
+# stonewall
+
+# [r_bs128M_70s]
+# bs=128M
+# ramptime=70s
+# stonewall
+
+# [r_bs128M_80s]
+# bs=128M
+# ramptime=80s
+# stonewall
+
+# [r_bs128M_90s]
+# bs=128M
+# ramptime=90s
+# stonewall
+
+# [r_bs128M_100s]
+# bs=128M
+# ramptime=100s
+# stonewall
